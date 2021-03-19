@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.add-new-items-container{
+    border: 3px solid black;
+}
+
+.hidden-form{
+    display: none;
+}

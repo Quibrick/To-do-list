@@ -1,0 +1,26 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "A todo list CRUD app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quibrick/To-do-list.git"
+  },
+  "author": "Evangelos Gravanis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quibrick/To-do-list/issues"
+  },
+  "homepage": "https://github.com/Quibrick/To-do-list#readme",
+  "devDependencies": {
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "date-fns": "^2.19.0"
+  }
+}
