@@ -3,10 +3,32 @@
     padding: 0;
 }
 
-.add-new-items-container{
-    border: 3px solid black;
+.item-container{
+    width: 600px;
+    height: auto;
+    margin: auto;
 }
 
 .hidden-form{
-    display: none;
+    margin-top: 10px;
+    flex-direction: column;
+    width: 600px;
+}
+
+input[type=text]{
+    height: 30px;
+}
+
+input[type=text-area]{
+    height: 50px;
+}
+
+.submit-button{
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+}
+
+.add-new-dropdown{
+    margin-top: 20px;
 }

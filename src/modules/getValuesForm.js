@@ -2,10 +2,12 @@ function getValuesForm() {
 
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
+    const dueDate = document.getElementById("due-date").value;
+    const priority = document.getElementById("priority").value;
 
-    let array = [title , description];
+    let formValues = [title , description, dueDate, priority];
 
-    return array;
+    return formValues;
 }
 
 export default getValuesForm;

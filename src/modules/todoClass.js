@@ -5,8 +5,8 @@ class ToDo {
 
         this.title = title;
         this.description = description;
-        /* this.dueDate = dueDate;
-        this.priority = priority; */
+        this.dueDate = dueDate;
+        this.priority = priority;
     }
 }
 

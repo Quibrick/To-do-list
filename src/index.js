@@ -1,4 +1,3 @@
-import createItemDOM from "./modules/itemDOM";
+import createItem from "./modules/itemDisplayDOM";
 
-createItemDOM();
-
+createItem();
