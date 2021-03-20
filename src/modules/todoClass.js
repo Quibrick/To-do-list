@@ -1,5 +1,5 @@
 //Todo item class
-class ToDo {
+class Todo {
 
     constructor (title, description, dueDate, priority) {
 
@@ -10,4 +10,4 @@ class ToDo {
     }
 }
 
-export default ToDo;
+export default Todo;

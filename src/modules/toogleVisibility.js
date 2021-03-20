@@ -1,12 +1,12 @@
-function toogleVisibility(form) {
+function toogleVisibility(element,displayStyle) {
 
-    if (form.style.display === "none") {
+    if (element.style.display === "none") {
         
-        form.style.display = "flex";
+        element.style.display = `${displayStyle}`;
 
     }else {
         
-        form.style.display = "none";
+        element.style.display = "none";
     }
 }
 

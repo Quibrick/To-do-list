@@ -1,3 +1,4 @@
+//creates the form for the ToDo item
 function formConstructor() {
     
     const form = document.createElement("form");
@@ -23,6 +24,7 @@ function formConstructor() {
     const descriptionInput = document.createElement("input");
     descriptionInput.type = "text-area";
     descriptionInput.id = "description";
+    descriptionInput.required = true;
 
     form.appendChild(descriptionLabel);
     form.appendChild(descriptionInput);
@@ -34,6 +36,7 @@ function formConstructor() {
     const dueDateInput = document.createElement("input");
     dueDateInput.type = "date";
     dueDateInput.id = "due-date";
+    dueDateInput.required = true;
 
     form.appendChild(dueDateLabel);
     form.appendChild(dueDateInput);
@@ -45,6 +48,7 @@ function formConstructor() {
     const priorityInput = document.createElement("input");
     priorityInput.type = "text";
     priorityInput.id = "priority";
+    priorityInput.required = true;
 
     form.appendChild(priorityLabel);
     form.appendChild(priorityInput);
