@@ -3,8 +3,37 @@
     padding: 0;
 }
 
+#head-bar{
+    border: 3px solid black;
+    height: 80px;
+    position: absolute;
+    right:0;
+    left:0;
+}
+
+#left-bar{
+    position: absolute;
+    left: 0;
+    top:85px;
+    bottom: 0;
+    width: 250px;
+    border: 3px solid red;
+}
+
+#content{
+    position: absolute;
+    left: 250px;
+    top:92px;
+    right: 0;
+    bottom: 0;
+}
+
+#item-view{
+    border: 3px solid red;
+}
 .item-container{
-    width: 600px;
+    border: 3px solid red;
+    width: 1000px;
     height: auto;
     margin: auto;
 }
@@ -12,11 +41,13 @@
 .hidden-form{
     margin-top: 10px;
     flex-direction: column;
-    width: 600px;
+    width: auto;
+    border: 3px solid rebeccapurple;
 }
 
 input[type=text]{
     height: 30px;
+    width: auto;
 }
 
 input[type=text-area]{

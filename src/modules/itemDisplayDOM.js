@@ -1,72 +1,66 @@
 import toogleVisibility from "./toogleVisibility";
 import formConstructor from "./formConstructor";
 import getValuesForm from "./getValuesForm";
-import Todo from "./todoClass";
-import clearForm from "./clearForm";
+import Task from "./TaskClass";
+import btnConstructor from "./cancelBtn";
 
-function createItem() {
+function createTask(id) {
     
     const content = document.getElementById("content");
     
+    const hiddenContainer =document.createElement("div");
+    hiddenContainer.classList.add("hidden-container");
+    hiddenContainer.style.display = "none";
+
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("item-container");
+    itemContainer.id = id;
 
     const form = formConstructor();
    
     //cancel button
-    const cancelBtn = document.createElement("button");
-    cancelBtn.classList.add("cancel-btn");
-    cancelBtn.innerHTML = "cancel";
-    cancelBtn.style.display = "none";
+    const cancelBtn = btnConstructor("cancel-btn", "cancel", "block");
 
     cancelBtn.addEventListener("click", () => {
 
-        toogleVisibility(addNewBtn,"block");
-        toogleVisibility(form,"flex");
-        toogleVisibility(cancelBtn,"block");
-        toogleVisibility(submitItem,"block");
-    })
+        toogleVisibility(hiddenContainer,"none");
+    });
     
-    //submit button
-    const submitItem = document.createElement("button");
-    submitItem.classList.add("form-buttons");
-    submitItem.innerHTML = "Submit Item";
-    submitItem.style.display = "none";
-
-    submitItem.addEventListener("click", () => {
-
-        const todoInfo = getValuesForm();
-        const todoObj = new Todo(todoInfo[0],todoInfo[1],todoInfo[2],todoInfo[3]);
-        console.log(todoObj);
-        toogleVisibility(addNewBtn,"block");
-        toogleVisibility(form,"flex");
-        toogleVisibility(cancelBtn,"block");
-        toogleVisibility(submitItem,"block");
-        addNewBtn.innerHTML = todoInfo[0];
-        clearForm();
-        createItem();
-    })
-
     //add new task button
-    const addNewBtn = document.createElement("button");
-    addNewBtn.classList.add("form-buttons");
-    addNewBtn.innerHTML = "Add new item";
+    const addNewBtn = btnConstructor("add-new-btn", "Add task", "block");
     
     addNewBtn.addEventListener('click',() => {
 
-        toogleVisibility(addNewBtn,"block");
-        toogleVisibility(form,"flex");
-        toogleVisibility(cancelBtn,"block");
-        toogleVisibility(submitItem,"block");
+        toogleVisibility(hiddenContainer,"block");
     });
 
+    //submit button
+    const submitBtn = btnConstructor("submit-btn", "Submit task", "block");
 
-    itemContainer.appendChild(form);
+    submitBtn.addEventListener("click", () => {
+
+        toogleVisibility(hiddenContainer,"none");
+        
+        const valuesArray = getValuesForm();
+
+        const taskObj = new Task (id,valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3], itemContainer); 
+
+        console.log(taskObj);
+
+        addNewBtn.innerHTML = "Edit Task";
+
+        id++;
+
+        createTask(id);
+    });
+
+    hiddenContainer.appendChild(form);
+    hiddenContainer.appendChild(cancelBtn);
+    hiddenContainer.appendChild(submitBtn);
     itemContainer.appendChild(addNewBtn);
-    itemContainer.appendChild(cancelBtn);
-    itemContainer.appendChild(submitItem);
-
+    itemContainer.appendChild(hiddenContainer);
+    
     content.appendChild(itemContainer);
 }
 
-export default createItem;
+export default createTask;

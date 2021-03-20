@@ -1,3 +1,10 @@
-import createItem from "./modules/itemDisplayDOM";
+import createTask from "./modules/itemDisplayDOM";
 
-createItem();
+
+function main() {
+
+    let id = 0;
+    createTask(id);
+}
+
+main();

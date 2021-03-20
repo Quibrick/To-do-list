@@ -3,7 +3,7 @@ function formConstructor() {
     
     const form = document.createElement("form");
     form.classList.add("hidden-form");
-    form.style.display = "none";
+    form.style.display = "flex";
 
     const titleLabel = document.createElement("label");
     titleLabel.htmlFor = "title";
