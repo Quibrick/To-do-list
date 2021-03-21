@@ -3,8 +3,9 @@ import formConstructor from "./formConstructor";
 import getValuesForm from "./getValuesForm";
 import Task from "./TaskClass";
 import btnConstructor from "./cancelBtn";
+import formValidation from "./formValidation";
 
-function createTask(id) {
+function createTask(id, storage) {
     
     const content = document.getElementById("content");
     
@@ -16,7 +17,7 @@ function createTask(id) {
     itemContainer.classList.add("item-container");
     itemContainer.id = id;
 
-    const form = formConstructor();
+    const form = formConstructor(id);
    
     //cancel button
     const cancelBtn = btnConstructor("cancel-btn", "cancel", "block");
@@ -38,20 +39,32 @@ function createTask(id) {
     const submitBtn = btnConstructor("submit-btn", "Submit task", "block");
 
     submitBtn.addEventListener("click", () => {
-
-        toogleVisibility(hiddenContainer,"none");
         
-        const valuesArray = getValuesForm();
+        const valuesArray = getValuesForm(id);
+        
+        if(formValidation(valuesArray)) {
 
-        const taskObj = new Task (id,valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3], itemContainer); 
+            toogleVisibility(hiddenContainer, "none");
+            
+            const taskObj = new Task (id,valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3], itemContainer); 
+            
+            addNewBtn.innerHTML = taskObj.title;
+            id++;
+            
+            localStorage.setItem("id", JSON.stringify(id));
 
-        console.log(taskObj);
+            storage.push(taskObj);
 
-        addNewBtn.innerHTML = "Edit Task";
+            localStorage.setItem("tasks", JSON.stringify(storage));
 
-        id++;
+            console.log(localStorage);
 
-        createTask(id);
+            createTask(id,storage);
+
+        }else {
+
+            console.log("error");
+        }
     });
 
     hiddenContainer.appendChild(form);
