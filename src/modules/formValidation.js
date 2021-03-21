@@ -6,6 +6,7 @@ function formValidation(values) {
         
         if(values[i] === '') {
 
+            console.log("woops")
             return false;
         }
     }

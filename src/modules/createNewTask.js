@@ -1,23 +1,21 @@
 import toogleVisibility from "./toogleVisibility";
 import formConstructor from "./formConstructor";
 import getValuesForm from "./getValuesForm";
-import Task from "./TaskClass";
 import btnConstructor from "./cancelBtn";
 import formValidation from "./formValidation";
+import taskItem from "./taskItem";
+import Task from "./TaskClass";
+import clearForm from "./clearForm";
 
-function createTask(id, storage) {
+function createNewTask() {
     
-    const content = document.getElementById("content");
+    const addNewTaskDiv = document.getElementById("add-new");
     
     const hiddenContainer =document.createElement("div");
     hiddenContainer.classList.add("hidden-container");
     hiddenContainer.style.display = "none";
 
-    const itemContainer = document.createElement("div");
-    itemContainer.classList.add("item-container");
-    itemContainer.id = id;
-
-    const form = formConstructor(id);
+    const form = formConstructor("create-task");
    
     //cancel button
     const cancelBtn = btnConstructor("cancel-btn", "cancel", "block");
@@ -25,6 +23,7 @@ function createTask(id, storage) {
     cancelBtn.addEventListener("click", () => {
 
         toogleVisibility(hiddenContainer,"none");
+        toogleVisibility(addNewBtn, "block")
     });
     
     //add new task button
@@ -32,7 +31,8 @@ function createTask(id, storage) {
     
     addNewBtn.addEventListener('click',() => {
 
-        toogleVisibility(hiddenContainer,"block");
+        toogleVisibility(hiddenContainer, "block");
+        toogleVisibility(addNewBtn, "none");
     });
 
     //submit button
@@ -40,40 +40,26 @@ function createTask(id, storage) {
 
     submitBtn.addEventListener("click", () => {
         
-        const valuesArray = getValuesForm(id);
+        const valuesArray = getValuesForm("create-task");
         
         if(formValidation(valuesArray)) {
 
+            const taskObj = new Task (valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3]);
+            taskItem(taskObj);
+            console.log(taskObj)
+            clearForm();
             toogleVisibility(hiddenContainer, "none");
-            
-            const taskObj = new Task (id,valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3], itemContainer); 
-            
-            addNewBtn.innerHTML = taskObj.title;
-            id++;
-            
-            localStorage.setItem("id", JSON.stringify(id));
-
-            storage.push(taskObj);
-
-            localStorage.setItem("tasks", JSON.stringify(storage));
-
-            console.log(localStorage);
-
-            createTask(id,storage);
-
-        }else {
-
-            console.log("error");
+            toogleVisibility(addNewBtn, "block");
         }
+        
     });
 
     hiddenContainer.appendChild(form);
     hiddenContainer.appendChild(cancelBtn);
     hiddenContainer.appendChild(submitBtn);
-    itemContainer.appendChild(addNewBtn);
-    itemContainer.appendChild(hiddenContainer);
+    addNewTaskDiv.appendChild(addNewBtn);
+    addNewTaskDiv.appendChild(hiddenContainer);
     
-    content.appendChild(itemContainer);
 }
 
-export default createTask;
+export default createNewTask;

@@ -22,36 +22,37 @@
 
 #content{
     position: absolute;
-    left: 250px;
+    left: 350px;
+    width: auto;
+    margin-right: 150px;
     top:92px;
     right: 0;
     bottom: 0;
 }
 
-#item-view{
-    border: 3px solid red;
-}
-.item-container{
-    border: 3px solid red;
-    width: 1000px;
-    height: auto;
-    margin: auto;
+#add-new{
+
 }
 
 .hidden-form{
     margin-top: 10px;
     flex-direction: column;
-    width: auto;
-    border: 3px solid rebeccapurple;
+    width: 350px;
 }
 
 input[type=text]{
     height: 30px;
-    width: auto;
+    width: 300px;
 }
 
 input[type=text-area]{
     height: 50px;
+    width: 300px;
+}
+
+input[type=date] {
+    height: 50px;
+    width: 300px;
 }
 
 .submit-button{
@@ -60,6 +61,15 @@ input[type=text-area]{
     height: 30px;
 }
 
-.add-new-dropdown{
+#add-new-btn{
     margin-top: 20px;
 }
+
+.single-task-container{
+    border-bottom:  3px solid royalblue;
+    margin-top: 10px;
+}
+
+
+
+
