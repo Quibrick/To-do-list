@@ -33,7 +33,7 @@ function createNewTask(id) {
     });
     
     //add new task button
-    const addNewBtn = btnConstructor("add-new-btn", "Add task", "block");
+    const addNewBtn = btnConstructor("add-new-btn", "+ Add task", "block");
     
     addNewBtn.addEventListener('click',() => {
 
@@ -42,7 +42,7 @@ function createNewTask(id) {
     });
 
     //submit button
-    const submitBtn = btnConstructor("submit-btn", "Submit task", "block");
+    const submitBtn = btnConstructor("submit-btn", "Submit", "block");
 
     submitBtn.addEventListener("click", () => {
         

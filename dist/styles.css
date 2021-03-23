@@ -30,29 +30,45 @@
     bottom: 0;
 }
 
-#add-new{
-
+#add-new-btn{
+    margin-top: 20px;
 }
 
 .hidden-form{
     margin-top: 10px;
     flex-direction: column;
-    width: 350px;
+    width: 300px;
+    border: 5px;
 }
 
 input[type=text]{
-    height: 30px;
+    height: 50px;
     width: 300px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
 }
 
 input[type=text-area]{
     height: 50px;
     width: 300px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
 }
 
 input[type=date] {
-    height: 50px;
-    width: 300px;
+    margin-top: 10px;
+    height: 30px;
+    width:135px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+}
+
+#bottom-hidden-items{
+    justify-content: space-between;
+    align-items: center;
 }
 
 .submit-button{
@@ -61,12 +77,8 @@ input[type=date] {
     height: 30px;
 }
 
-#add-new-btn{
-    margin-top: 20px;
-}
-
 .single-task-container{
-    border-bottom:  3px solid royalblue;
+    border-bottom:  3px solid #3581B8;
     margin-top: 10px;
     padding-bottom: 10px;
 }
@@ -80,7 +92,7 @@ input[type=date] {
     gap:30px;
 }
 
-#task-description {
+.task-description-class{
     margin-top: 20px;
 }
 
@@ -88,5 +100,18 @@ input[type=date] {
 
     margin-top: 10px;
     gap: 10px;
+}
+
+#add-new-btn{
+    font-size: 20px;
+    padding: 5px 5px 5px 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.1s;
+}
+
+#add-new-btn:hover{
+    color: tomato;
 }
 

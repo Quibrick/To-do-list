@@ -1,3 +1,5 @@
+import { hi } from "date-fns/locale";
+import btnConstructor from "./btnConstructor";
 import toogleVisibility from "./toogleVisibility";
 
 function taskItemConstructor(id) {
@@ -26,11 +28,13 @@ function taskItemConstructor(id) {
 
     title.addEventListener("click" , () => {
 
-        toogleVisibility(hiddenTask,"block");
+        toogleVisibility(hiddenTask,"flex");
     });
     
     const description = document.createElement("div");
+    description.classList.add("task-description-class");
     description.id = `task-description-${id}`;
+    description.contentEditable = "true";
     description.classList.add("task-look");
 
     const dueDate = document.createElement("div");
@@ -41,6 +45,7 @@ function taskItemConstructor(id) {
     priority.id = `task-priority-${id}`;
     priority.classList.add("task-look");
 
+    
     visibleTask.appendChild(title);
     rightHandItems.appendChild(priority);
     rightHandItems.appendChild(dueDate);
@@ -51,7 +56,6 @@ function taskItemConstructor(id) {
     singleTaskContainer.appendChild(hiddenTask);
 
     tasksContainer.appendChild(singleTaskContainer);
-
 }
 
 export default taskItemConstructor;
