@@ -1,14 +1,20 @@
 import toogleVisibility from "./toogleVisibility";
 
-function taskItem(taskObj) {
+function taskItemConstructor(id) {
 
     const tasksContainer = document.getElementById("tasks-container");
 
     const singleTaskContainer = document.createElement("div");
     singleTaskContainer.classList.add("single-task-container");
+    singleTaskContainer.id = `task-${id}`;
 
     const visibleTask = document.createElement("div");
     visibleTask.classList.add("visible-task");
+    visibleTask.style.display = "flex";
+
+    const rightHandItems = document.createElement("div");
+    rightHandItems.classList.add("right-hand-items");
+    rightHandItems.style.display = "flex";
 
     const hiddenTask = document.createElement("div");
     hiddenTask.classList.add("hidden-task");
@@ -16,39 +22,36 @@ function taskItem(taskObj) {
     
     const title = document.createElement("button");
     title.classList.add("task-look");
-    title.id = "task-title";
+    title.id = `task-title-${id}`;
 
     title.addEventListener("click" , () => {
 
         toogleVisibility(hiddenTask,"block");
-    })
+    });
     
     const description = document.createElement("div");
-    description.id = "task-description";
+    description.id = `task-description-${id}`;
     description.classList.add("task-look");
 
     const dueDate = document.createElement("div");
-    dueDate.id = "task-due-date"
+    dueDate.id = `task-due-date-${id}`;
     dueDate.classList.add("task-look");
 
     const priority = document.createElement("div");
-    priority.id = "task-priority"
+    priority.id = `task-priority-${id}`;
     priority.classList.add("task-look");
-    
-    title.innerHTML = taskObj.title;
-    description.innerHTML  = `Description : ${taskObj.description}`;
-    dueDate.innerHTML = `Due-date : ${taskObj.dueDate}`;
-    priority.innerHTML = `Priority : ${taskObj.priority}`;
-    
+
     visibleTask.appendChild(title);
-    visibleTask.appendChild(dueDate);
-    visibleTask.appendChild(priority);
+    rightHandItems.appendChild(priority);
+    rightHandItems.appendChild(dueDate);
+    visibleTask.appendChild(rightHandItems);
     hiddenTask.appendChild(description);
 
     singleTaskContainer.appendChild(visibleTask);
     singleTaskContainer.appendChild(hiddenTask);
 
     tasksContainer.appendChild(singleTaskContainer);
+
 }
 
-export default taskItem;
+export default taskItemConstructor;

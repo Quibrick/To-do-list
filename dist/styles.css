@@ -68,8 +68,25 @@ input[type=date] {
 .single-task-container{
     border-bottom:  3px solid royalblue;
     margin-top: 10px;
+    padding-bottom: 10px;
 }
 
+.visible-task{
+    justify-content: space-between;
+}
 
+.right-hand-items{
+    flex-direction: row;
+    gap:30px;
+}
 
+#task-description {
+    margin-top: 20px;
+}
+
+.hidden-buttons{
+
+    margin-top: 10px;
+    gap: 10px;
+}
 
