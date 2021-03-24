@@ -5,11 +5,10 @@ function setTask(taskObj) {
     const dueDate = document.getElementById(`task-due-date-${taskObj.id}`);
     const priority = document.getElementById(`task-priority-${taskObj.id}`);
 
-    title.innerHTML = `+ ${taskObj.title}`;
-    description.innerHTML  = `Description : ${taskObj.description}`;
-    dueDate.innerHTML = `Due-date : ${taskObj.dueDate}`;
+    title.innerHTML = `${taskObj.title}`;
+    description.innerHTML  = `${taskObj.description}`;
+    dueDate.innerHTML = `${taskObj.dueDate}`;
     priority.innerHTML = `Priority : ${taskObj.priority}`;
-
-}
+};
 
 export default setTask;

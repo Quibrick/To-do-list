@@ -1,11 +1,12 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 #head-bar{
-    border: 3px solid black;
-    height: 80px;
+    background-color: #595959;
+    height: 60px;
     position: absolute;
     right:0;
     left:0;
@@ -14,10 +15,10 @@
 #left-bar{
     position: absolute;
     left: 0;
-    top:85px;
+    top:60px;
     bottom: 0;
-    width: 250px;
-    border: 3px solid red;
+    width: 300px;
+    background-color: #CCCCCC;
 }
 
 #content{
@@ -38,7 +39,6 @@
     margin-top: 10px;
     flex-direction: column;
     width: 300px;
-    border: 5px;
 }
 
 input[type=text]{
@@ -46,7 +46,7 @@ input[type=text]{
     width: 300px;
     border: none;
     outline: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #011627;
 }
 
 input[type=text-area]{
@@ -54,7 +54,7 @@ input[type=text-area]{
     width: 300px;
     border: none;
     outline: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #011627;
 }
 
 input[type=date] {
@@ -63,22 +63,56 @@ input[type=date] {
     width:135px;
     border: none;
     outline: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #011627;
 }
 
-#bottom-hidden-items{
-    justify-content: space-between;
-    align-items: center;
+::placeholder{
+    color:black;
 }
 
-.submit-button{
+#add-new-btn:hover{
+    color: #20A4F3;
+}
+
+#add-new-btn{
+    font-size: 20px;
+    padding: 5px 5px 5px 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.1s;
+}
+
+#submit-btn{
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.1s;
     margin-top: 10px;
-    width: 100px;
-    height: 30px;
 }
+
+#submit-btn:hover{
+    color: #20A4F3;
+}
+
+#cancel-btn{
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.1s;
+    margin-top: 10px;
+    margin-left: 170px;
+}
+
+#cancel-btn:hover{
+    color: #20A4F3;
+}
+
 
 .single-task-container{
-    border-bottom:  3px solid #3581B8;
+    border-bottom:  3px solid #011627;
     margin-top: 10px;
     padding-bottom: 10px;
 }
@@ -102,8 +136,9 @@ input[type=date] {
     gap: 10px;
 }
 
-#add-new-btn{
+.task-title-class{
     font-size: 20px;
+    font-weight: bold;
     padding: 5px 5px 5px 5px;
     background-color: transparent;
     border: none;
@@ -111,7 +146,47 @@ input[type=date] {
     transition: 0.1s;
 }
 
-#add-new-btn:hover{
-    color: tomato;
+.task-title-class:hover{
+    color: #20A4F3;
 }
+
+.task-look{
+    font-size: 16px;
+    padding: 5px 5px 5px 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.1s;
+}
+
+#edit-task-btn{
+    font-size: 16px;
+    padding: 5px 5px 5px 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.1s;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px; /* Could be more or less, depending on screen size */
+  }
 

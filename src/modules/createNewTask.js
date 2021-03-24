@@ -22,9 +22,9 @@ function createNewTask(id) {
     hiddenButtons.style.display = "flex";
 
     const form = formConstructor("create-task");
-   
+
     //cancel button
-    const cancelBtn = btnConstructor("cancel-btn", "cancel", "block");
+    const cancelBtn = btnConstructor("cancel-btn", "Cancel", "block");
 
     cancelBtn.addEventListener("click", () => {
 
@@ -56,7 +56,9 @@ function createNewTask(id) {
             clearForm();
             toogleVisibility(hiddenContainer, "none");
             toogleVisibility(addNewBtn, "block");
+            localStorage.setItem(`task-${id}`, JSON.stringify(taskObj));
             id ++;
+            localStorage.setItem("id", id);
         }
     });
 

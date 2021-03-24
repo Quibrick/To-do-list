@@ -36,6 +36,13 @@ function formConstructor() {
 
     form.appendChild(dueDateInput);
 
+    const emptyAlert = document.createElement("p");
+    emptyAlert.id = "empty-alert";
+    emptyAlert.style.display = "none";
+    emptyAlert.innerHTML = "Please fill out all the input fields";
+
+    form.appendChild(emptyAlert);
+
     return form;
 }
 
