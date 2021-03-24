@@ -52,13 +52,13 @@ function createNewTask(id) {
 
             taskItemConstructor(id);
             const taskObj = new Task (id, valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3]);
+            localStorage.setItem(`task-${id}`, JSON.stringify(taskObj));
+            id ++;
+            localStorage.setItem("id", id);
             setTask(taskObj);
             clearForm();
             toogleVisibility(hiddenContainer, "none");
             toogleVisibility(addNewBtn, "block");
-            localStorage.setItem(`task-${id}`, JSON.stringify(taskObj));
-            id ++;
-            localStorage.setItem("id", id);
         }
     });
 

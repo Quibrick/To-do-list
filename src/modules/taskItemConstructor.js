@@ -1,5 +1,4 @@
 import btnConstructor from "./btnConstructor";
-import formConstructor from "./formConstructor";
 import toogleVisibility from "./toogleVisibility";
 
 function taskItemConstructor(id) {
@@ -54,32 +53,12 @@ function taskItemConstructor(id) {
     
     hiddenTask.appendChild(description);
     
-    
-    const modalContainer = document.createElement("div");
-    modalContainer.classList.add("modal");
-    modalContainer.style.display = "none";
-    
-    const modalContent = formConstructor();
-    modalContent.classList.add("modal-content");
-    
     const editBtn = btnConstructor("edit-task-btn", "Edit", "block");
-    editBtn.addEventListener("click", () => {
-
-        toogleVisibility(modalContainer, "block");
-    
-    });
-
-    const saveBtn = btnConstructor("save-changes-btn", "Save changes", "block");
-
-    modalContent.appendChild(saveBtn);
-
-    modalContainer.appendChild(modalContent);
 
     rightHandItems.appendChild(editBtn);
 
     singleTaskContainer.appendChild(visibleTask);
     singleTaskContainer.appendChild(hiddenTask);
-    singleTaskContainer.appendChild(modalContainer);
 
     tasksContainer.appendChild(singleTaskContainer);
 };
