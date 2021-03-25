@@ -53,9 +53,33 @@ function taskItemConstructor(id) {
     
     hiddenTask.appendChild(description);
     
-    const editBtn = btnConstructor("edit-task-btn", "Edit", "block");
+    const editBtn = btnConstructor(`edit-task-${id}`, "", "block");
+    editBtn.classList.add("task-btn");
+
+    const editImage = document.createElement("img");
+    editImage.id = "edit-task-img";
+    editImage.src = './img/edit.svg';
+
+    editBtn.appendChild(editImage);
 
     rightHandItems.appendChild(editBtn);
+
+    const deleteBtn = btnConstructor(`delete-task-${id}`, "", "block");
+    deleteBtn.classList.add("task-btn");
+
+    const deleteImage = document.createElement("img");
+    deleteImage.id = "delete-task-img";
+    deleteImage.src = './img/cancel.svg';
+
+    deleteBtn.appendChild(deleteImage);
+
+    deleteBtn.addEventListener("click", () => {
+
+        singleTaskContainer.remove();
+        
+    })
+
+    rightHandItems.appendChild(deleteBtn);
 
     singleTaskContainer.appendChild(visibleTask);
     singleTaskContainer.appendChild(hiddenTask);

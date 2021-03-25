@@ -74,6 +74,15 @@ input[type=date] {
     color: #20A4F3;
 }
 
+#radio-input-container{
+    margin-top: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    display: flex;
+    column-gap: 10px;
+    border-bottom: 1px solid #011627;
+}
+
 #add-new-btn{
     font-size: 20px;
     padding: 5px 5px 5px 5px;
@@ -152,19 +161,33 @@ input[type=date] {
 
 .task-look{
     font-size: 16px;
-    padding: 5px 5px 5px 5px;
+    padding: 8px 5px 5px 5px;
     background-color: transparent;
     border: none;
     outline: none;
     transition: 0.1s;
 }
 
-#edit-task-btn{
-    font-size: 16px;
-    padding: 5px 5px 5px 5px;
-    background-color: transparent;
+.task-btn{
     border: none;
+    background-color: transparent;
     outline: none;
-    transition: 0.1s;
+    width: auto;
+    height: auto;
 }
+
+#edit-task-img{
+    width: 15px;
+    height: 15px;
+}
+
+#delete-task-img{
+    width: 10px;
+    height: 15px;
+}
+
+#right-hand-items{
+    align-items: center;
+}
+
 

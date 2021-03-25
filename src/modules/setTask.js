@@ -8,7 +8,7 @@ function setTask(taskObj) {
     title.innerHTML = `${taskObj.title}`;
     description.innerHTML  = `${taskObj.description}`;
     dueDate.innerHTML = `${taskObj.dueDate}`;
-    priority.innerHTML = `Priority : ${taskObj.priority}`;
+    priority.innerHTML = `${taskObj.priority}`;
 };
 
 export default setTask;

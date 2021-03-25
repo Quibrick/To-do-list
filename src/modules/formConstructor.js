@@ -20,28 +20,40 @@ function formConstructor() {
     descriptionInput.required = true;
 
     form.appendChild(descriptionInput);
-
-    const priorityInput = document.createElement("input");
-    priorityInput.type = "text";
-    priorityInput.placeholder = "Priority"
-    priorityInput.id = "priority";
-    priorityInput.required = true;
-
-    form.appendChild(priorityInput);
-
+    
+    const radioInputContainer = document.createElement("div");
+    radioInputContainer.id = "radio-input-container";
+    
+    const priorityLabel = document.createElement("p");
+    priorityLabel.innerHTML = "Priority :";
+    
+    radioInputContainer.appendChild(priorityLabel);
+    
+    const labels = ["High", "Normal", "Low"];
+    
+    for(let i = 0; i < labels.length; i++) {
+        
+        const label = document.createElement("label");
+        label.htmlFor = labels[i];
+        label.innerHTML = labels[i];
+        label.name = "priority";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "priority";
+        input.value = labels[i];
+        
+        radioInputContainer.appendChild(label);
+        radioInputContainer.appendChild(input);
+    }
+    
+    form.appendChild(radioInputContainer);
+    
     const dueDateInput = document.createElement("input");
     dueDateInput.type = "date";
     dueDateInput.id = "due-date";
     dueDateInput.required = true;
 
     form.appendChild(dueDateInput);
-
-    const emptyAlert = document.createElement("p");
-    emptyAlert.id = "empty-alert";
-    emptyAlert.style.display = "none";
-    emptyAlert.innerHTML = "Please fill out all the input fields";
-
-    form.appendChild(emptyAlert);
 
     return form;
 }

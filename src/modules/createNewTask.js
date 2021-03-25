@@ -9,7 +9,7 @@ import clearForm from "./clearForm";
 import taskItemConstructor from "./taskItemConstructor";
 
 //New Task button displayed on the DOM
-function createNewTask(id) {
+function createNewTask(id, taskManager) {
     
     const addNewTaskDiv = document.getElementById("add-new");
     
@@ -21,7 +21,7 @@ function createNewTask(id) {
     hiddenButtons.classList.add("hidden-buttons");
     hiddenButtons.style.display = "flex";
 
-    const form = formConstructor("create-task");
+    const form = formConstructor();
 
     //cancel button
     const cancelBtn = btnConstructor("cancel-btn", "Cancel", "block");
@@ -53,6 +53,8 @@ function createNewTask(id) {
             taskItemConstructor(id);
             const taskObj = new Task (id, valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3]);
             localStorage.setItem(`task-${id}`, JSON.stringify(taskObj));
+            taskManager.tasks.push(taskObj);
+            localStorage.setItem("task-manager", JSON.stringify(taskManager));
             id ++;
             localStorage.setItem("id", id);
             setTask(taskObj);

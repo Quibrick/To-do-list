@@ -8,7 +8,6 @@ function clearForm() {
     title.value = "";
     description.value = "";
     dueDate.value = "";
-    priority.value = "";
 }
 
 export default clearForm;

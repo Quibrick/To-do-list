@@ -1,18 +1,20 @@
 import createNewTask from "./modules/createNewTask";
 import setTask from "./modules/setTask";
 import taskItemConstructor from "./modules/taskItemConstructor";
+import TaskManager from "./modules/TaskManagerClass";
 
 function main() {
 
-    if (localStorage.length === 0){
+    let id = JSON.parse(localStorage.getItem("id"));
+
+    if (id === null) {
         
-        let storage = [];
+        let taskManager = new TaskManager();
         let id = 0; //on startup
-        createNewTask(id, storage);
+        createNewTask(id, taskManager);
     
     }else {
 
-        let id = JSON.parse(localStorage.getItem("id"));
         createNewTask(id);
 
         for(let i = 0; i < id; i++) {
