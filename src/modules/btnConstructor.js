@@ -1,3 +1,4 @@
+//constructs buttons for the DOM 
 function btnConstructor(id, innerHTML, display) {
 
     const btn = document.createElement("button");

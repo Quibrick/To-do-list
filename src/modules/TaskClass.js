@@ -1,4 +1,4 @@
-//Todo item class
+//Task item class
 class Task {
 
     constructor (id, title, description, dueDate, priority) {

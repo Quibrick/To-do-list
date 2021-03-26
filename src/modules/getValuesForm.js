@@ -1,5 +1,5 @@
-
-function getValuesForm(id) {
+//Gets the values from the form
+function getValuesForm() {
 
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;

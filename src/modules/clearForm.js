@@ -1,3 +1,4 @@
+//Clears the Add task from on the DOM
 function clearForm() {
 
     const title = document.getElementById("title");

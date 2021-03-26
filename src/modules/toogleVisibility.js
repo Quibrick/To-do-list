@@ -1,3 +1,4 @@
+// toogles display none - to selected
 function toogleVisibility(element,displayStyle) {
 
     if (element.style.display === "none") {

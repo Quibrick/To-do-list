@@ -1,4 +1,4 @@
-//creates the form for the ToDo item
+//creates the form for the Add task view
 function formConstructor() {
     
     const form = document.createElement("form");

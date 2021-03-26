@@ -7,15 +7,16 @@ function main() {
 
     let id = JSON.parse(localStorage.getItem("id"));
 
+    let taskManager = new TaskManager("taskManager");
+
     if (id === null) {
         
-        let taskManager = new TaskManager();
         let id = 0; //on startup
         createNewTask(id, taskManager);
     
     }else {
 
-        createNewTask(id);
+        createNewTask(id, taskManager);
 
         for(let i = 0; i < id; i++) {
 

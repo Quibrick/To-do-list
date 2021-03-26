@@ -1,3 +1,4 @@
+//sets the attributes for the task item on the DOM
 function setTask(taskObj) {
 
     const title = document.getElementById(`task-title-${taskObj.id}`);

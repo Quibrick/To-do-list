@@ -1,3 +1,4 @@
+//validates the form inputs so there is no null entry
 function formValidation(values) {
 
     const length = values.length;
