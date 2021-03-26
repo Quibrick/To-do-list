@@ -7,23 +7,24 @@ function main() {
 
     let id = JSON.parse(localStorage.getItem("id"));
 
-    let taskManager = new TaskManager("taskManager");
-
     if (id === null) {
         
+        let taskManager = new Map();
         let id = 0; //on startup
         createNewTask(id, taskManager);
     
     }else {
 
+        let taskManager = new Map(JSON.parse(localStorage.taskManager));
+
         createNewTask(id, taskManager);
 
-        for(let i = 0; i < id; i++) {
+        console.log(taskManager);
 
-            let task = JSON.parse(localStorage.getItem(`task-${i}`));
+        for(let value of taskManager.values()) {
 
-            taskItemConstructor(task.id);
-            setTask(task);
+            taskItemConstructor(value.id);
+            setTask(value);
         }
     }
 }

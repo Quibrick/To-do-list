@@ -47,9 +47,9 @@ function createNewTask(id, taskManager) {
             
             taskItemConstructor(id);
             const taskObj = new Task (id, valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3]);
-            taskManager.tasks.push(taskObj)
-            localStorage.setItem("Task-Manager", JSON.stringify(taskManager));
-            localStorage.setItem(`task-${id}`, JSON.stringify(taskObj));
+            taskManager.set(`task-${id}`, taskObj);
+            localStorage.taskManager = JSON.stringify(Array.from(taskManager.entries()))
+            console.log(taskManager);
             id ++;
             localStorage.setItem("id", id);
             setTask(taskObj);

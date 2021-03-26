@@ -17,14 +17,13 @@ function taskItemConstructor(id) {
     visibleTask.classList.add("visible-task");
     visibleTask.style.display = "flex";
     
-    //part that shows when usr clicks on title
+    //description -> block when usr clicks on title
     const hiddenTask = document.createElement("div");
     hiddenTask.classList.add("hidden-task");
     hiddenTask.style.display = "none";
     
-    const title = document.createElement("button");
+    const title = btnConstructor(`task-title-${id}`, "", "block");
     title.classList.add("task-title-class");
-    title.id = `task-title-${id}`;
     
     title.addEventListener("click" , () => {
 
@@ -70,16 +69,16 @@ function taskItemConstructor(id) {
     deleteImage.id = "delete-task-img";
     deleteImage.src = './img/cancel.svg';
 
-    deleteBtn.appendChild(deleteImage);
-
     deleteBtn.addEventListener("click", () => {
-
+        
         console.log(id);
-         
-        //singleTaskContainer.remove(id);
-        //removeItem(id);
+        singleTaskContainer.remove();
+        let taskManager = new Map(JSON.parse(localStorage.taskManager));
+        taskManager.delete(`task-${id}`);
+        localStorage.taskManager = JSON.stringify(Array.from(taskManager.entries()))
     });
-
+    
+    deleteBtn.appendChild(deleteImage);
     rightHandItems.appendChild(deleteBtn);
 
     const description = document.createElement("div");
