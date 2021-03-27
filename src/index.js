@@ -1,25 +1,22 @@
-import createNewTask from "./modules/createNewTask";
+import addTaskConstructor from "./modules/addTaskConstructor";
 import setTask from "./modules/setTask";
 import taskItemConstructor from "./modules/taskItemConstructor";
 import TaskManager from "./modules/TaskManagerClass";
 
 function main() {
-
+    //get id from local storage
     let id = JSON.parse(localStorage.getItem("id"));
 
     if (id === null) {
         
-        let taskManager = new Map();
-        let id = 0; //on startup
-        createNewTask(id, taskManager);
+        let taskManager = new Map(); //maps all task objects
+        let id = 0; //id for every obj
+        addTaskConstructor(id, taskManager); //creates add-task DOM item
     
-    }else {
+    } else {
 
         let taskManager = new Map(JSON.parse(localStorage.taskManager));
-
-        createNewTask(id, taskManager);
-
-        console.log(taskManager);
+        addTaskConstructor(id, taskManager);
 
         for(let value of taskManager.values()) {
 

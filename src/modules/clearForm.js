@@ -1,10 +1,9 @@
 //Clears the Add task from on the DOM
-function clearForm() {
+function clearForm(identifier) {
 
-    const title = document.getElementById("title");
-    const description = document.getElementById("description");
-    const dueDate = document.getElementById("due-date");
-
+    const title = document.getElementById(`title-${identifier}`);
+    const description = document.getElementById(`description-${identifier}`);
+    const dueDate = document.getElementById(`due-date-${identifier}`);
     title.value = "";
     description.value = "";
     dueDate.value = "";
