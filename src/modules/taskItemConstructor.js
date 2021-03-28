@@ -67,8 +67,7 @@ function taskItemConstructor(id) {
         modal.style.display = "none";
         toogleVisibility(modal, "block");
         setModal(taskObj);
-        console.log("edit");
-    })
+    });
    
     //img of edit task btn
     const editImage = document.createElement("img");

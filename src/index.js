@@ -1,3 +1,4 @@
+import addProjectBtn from "./modules/addProjectBtn";
 import addTaskConstructor from "./modules/addTaskConstructor";
 import setTask from "./modules/setTask";
 import taskItemConstructor from "./modules/taskItemConstructor";
@@ -15,6 +16,7 @@ function main() {
     
     } else {
 
+        addProjectBtn();
         let taskManager = new Map(JSON.parse(localStorage.taskManager));
         addTaskConstructor(id, taskManager);
 
