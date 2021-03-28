@@ -1,8 +1,9 @@
 import btnConstructor from "./btnConstructor";
 import formConstructor from "./formConstructor";
+import getValuesForm from "./getValuesForm";
 import toogleVisibility from "./toogleVisibility";
 
-function modalConstructor() {
+function modalConstructor(taskObj) {
 
     //select the body of page to display modal
     const bodyDOM = document.getElementsByTagName("body")[0];
@@ -10,6 +11,7 @@ function modalConstructor() {
     //contains everything modal related
     const modalContainer = document.createElement("div");
     modalContainer.id = "modal-form";
+    modalContainer.style.display = "none";
     modalContainer.classList.add("modal");
     
     //modal content
@@ -18,7 +20,6 @@ function modalConstructor() {
     const editTaskTitle = document.createElement("h1");
     editTaskTitle.id = "edit-task-title-modal";
     editTaskTitle.innerHTML = "Edit task";
-
     modalContent.appendChild(editTaskTitle);
 
     //modal form
@@ -30,31 +31,29 @@ function modalConstructor() {
     hiddenButtons.classList.add("hidden-buttons");
     hiddenButtons.style.display = "flex";
     
-    
     const saveBtn = btnConstructor("save-changes-btn-modal", "Save changes", "block");
+    saveBtn.addEventListener("click", () => {
+        
 
-    //TODO! START WORKING ON SUBMIT BTN IN ORDER TO UPDATE TASKS ON THE DOM AND ON THE STORAGE !
-
-
+    })
+    hiddenButtons.appendChild(saveBtn);
+    
     const cancelBtn = btnConstructor("discard-btn-modal", "Discard", "block");
     cancelBtn.addEventListener("click", () => {
-
+        
         toogleVisibility(modalContainer, "none");
         modalContainer.remove();
-
+        
     });
-
-    hiddenButtons.appendChild(saveBtn);
     hiddenButtons.appendChild(cancelBtn);
-
+    
     modalContent.appendChild(hiddenButtons);
-
-
     modalContent.classList.add("modal-content");
-
+    
     modalContainer.appendChild(modalContent);
-
-    bodyDOM.appendChild(modalContainer);
+    
+    
+    bodyDOM.appendChild(modalContainer);    
 }
 
 export default modalConstructor;

@@ -62,7 +62,6 @@ function taskItemConstructor(id) {
         
         let taskManager = new Map(JSON.parse(localStorage.taskManager)); //create a new map !!!MAYBE CHANGE THIS    
         const taskObj = taskManager.get(`task-${id}`);
-        console.log(taskObj);
         modalConstructor();
         const modal = document.getElementById("modal-form");
         modal.style.display = "none";
