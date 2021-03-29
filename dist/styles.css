@@ -42,6 +42,21 @@
     background-color: #CCCCCC;
 }
 
+#left-hand-hidden-container{
+    display: flex;
+    text-align: center;
+}
+
+#project-name-input{
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #EFEBDE;
+    border: transparent;
+    outline: none;
+}
+
 #content{
     position: absolute;
     left: 350px;
@@ -99,9 +114,6 @@ input[type=date] {
     color:black;
 }
 
-#add-new-btn:hover{
-    color: #20A4F3;
-}
 
 #radio-input-container{
     margin-top: 20px;
@@ -119,6 +131,11 @@ input[type=date] {
     border: none;
     outline: none;
     transition: 0.1s;
+    margin-bottom: 220px;
+}
+
+#add-new-btn:hover{
+    color: #71C386;
 }
 
 #submit-btn{
@@ -132,7 +149,7 @@ input[type=date] {
 }
 
 #submit-btn:hover{
-    color: #20A4F3;
+    color: #71C386;
 }
 
 #cancel-btn{
@@ -147,7 +164,7 @@ input[type=date] {
 }
 
 #cancel-btn:hover{
-    color: #20A4F3;
+    color: #71C386;
 }
 
 .single-task-container{
@@ -170,7 +187,7 @@ input[type=date] {
 }
 
 .hidden-buttons{
-
+    margin-bottom: 50px;
     margin-top: 10px;
     gap: 10px;
 }
@@ -295,6 +312,14 @@ input[type=date] {
     outline: none;
 }
 
+#create-new-project{
+    font-weight: normal;
+}
+
+#create-new-project:hover{
+    color: #71C386;
+}
+
 .left-bar-btn:hover{
     color: #20A4F3;
 }
@@ -302,3 +327,37 @@ input[type=date] {
 #page-view-title{
     text-align: center;
 }
+
+#submit-btn-left{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.1s;
+    margin-top: 10px;
+}
+
+#submit-btn-left:hover{
+    color: #71C386;
+}
+
+#cancel-btn-left{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.1s;
+    margin-top: 10px;
+}
+
+#cancel-btn-left:hover{
+    color: #71C386;
+}
+
+.left-hand-hidden-buttons{
+    justify-content: center;
+    column-gap: 40px;
+    margin-top: 10px;
+;}

@@ -6,7 +6,7 @@ import formValidation from "./formValidation";
 import setTask from "./setTask";
 import Task from "./TaskClass";
 import clearForm from "./clearForm";
-import taskItemConstructor from "./taskItemConstructor";
+import taskItem from "./taskItem";
 
 //New Task button displayed on the DOM
 function addTaskConstructor(id, taskManager) {
@@ -49,7 +49,7 @@ function addTaskConstructor(id, taskManager) {
         //if input != empty
         if(formValidation(valuesArray)) {
             
-            taskItemConstructor(id); //create the DOM element 
+            taskItem(id); //create the DOM element 
             const taskObj = new Task (id, valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3]); //create the coresponding object
             taskManager.set(`task-${id}`, taskObj); //map() stores the obj
             localStorage.taskManager = JSON.stringify(Array.from(taskManager.entries())) //localy store map()

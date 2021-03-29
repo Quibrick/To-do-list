@@ -1,7 +1,7 @@
-import addProjectBtn from "./modules/addProjectBtn";
-import addTaskConstructor from "./modules/addTaskConstructor";
+import createNewProjectBtn from "./modules/createNewProject";
+import addTask from "./modules/addTask";
 import setTask from "./modules/setTask";
-import taskItemConstructor from "./modules/taskItemConstructor";
+import taskItemConstructor from "./modules/taskItem";
 import TaskManager from "./modules/TaskManagerClass";
 
 function main() {
@@ -12,13 +12,13 @@ function main() {
         
         let taskManager = new Map(); //maps all task objects
         let id = 0; //id for every obj
-        addTaskConstructor(id, taskManager); //creates add-task DOM item
+        addTask(id, taskManager); //creates add-task DOM item
     
     } else {
 
-        addProjectBtn();
+        createNewProjectBtn();
         let taskManager = new Map(JSON.parse(localStorage.taskManager));
-        addTaskConstructor(id, taskManager);
+        addTask(id, taskManager);
 
         for(let value of taskManager.values()) {
 
