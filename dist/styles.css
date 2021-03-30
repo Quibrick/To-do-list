@@ -42,9 +42,16 @@
     background-color: #CCCCCC;
 }
 
+@media (max-width: 768px){
+    #left-bar{
+        display: none;
+    }
+}
+
 #left-hand-hidden-container{
     display: flex;
     text-align: center;
+    margin-top: 20px;
 }
 
 #project-name-input{
@@ -314,6 +321,8 @@ input[type=date] {
 
 #create-new-project{
     font-weight: normal;
+    margin: auto;
+    margin-top: 20px;
 }
 
 #create-new-project:hover{
@@ -361,3 +370,7 @@ input[type=date] {
     column-gap: 40px;
     margin-top: 10px;
 ;}
+
+#left-bar{
+    text-align: center;
+}
