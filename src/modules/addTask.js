@@ -9,7 +9,7 @@ import clearForm from "./clearForm";
 import taskItem from "./taskItem";
 
 //New Task button displayed on the DOM
-function addTaskConstructor(id, taskManager) {
+function addTaskConstructor(id, taskManager, projectName) {
     
     //the container
     const addNewTaskDiv = document.getElementById("add-new");
@@ -52,7 +52,7 @@ function addTaskConstructor(id, taskManager) {
             taskItem(id); //create the DOM element 
             const taskObj = new Task (id, valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3]); //create the coresponding object
             taskManager.set(`task-${id}`, taskObj); //map() stores the obj
-            localStorage.taskManager = JSON.stringify(Array.from(taskManager.entries())) //localy store map()
+            localStorage.landingProject = JSON.stringify(Array.from(taskManager.entries())) //localy store map()
             id ++;
             localStorage.setItem("id", id); //localy store id
             setTask(taskObj); //fills the DOM element with the taskobj values

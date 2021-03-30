@@ -14,14 +14,15 @@ function main() {
         
         let taskManager = new Map(); //maps all task objects
         let id = 0; //id for every obj
-        addTask(id, taskManager); //creates add-task DOM item
+        addTask(id, taskManager, "landingProject"); //creates add-task DOM item
         createNewProjectBtn();
         landingProject();
     
     } else {
 
+        landingProject();
         createNewProjectBtn();
-        let taskManager = new Map(JSON.parse(localStorage.taskManager));
+        let taskManager = new Map(JSON.parse(localStorage.landingProject));
         addTask(id, taskManager);
 
         for(let value of taskManager.values()) {
