@@ -2,7 +2,7 @@ import btnConstructor from "./btnConstructor";
 import project from "./project";
 import toogleVisibility from "./toogleVisibility";
 
-function createNewProjectBtn() {
+function createNewProjectBtn(customProjectList) {
 
     //left bar
     const leftBar = document.getElementById("left-bar");
@@ -40,6 +40,9 @@ function createNewProjectBtn() {
 
         if(projectNameInput.value.length != 0) {  //check to see if inputs !=null
             
+            customProjectList.push(projectNameInput.value);
+            localStorage.setItem("custom-project-list" , JSON.stringify(customProjectList));
+            console.log(customProjectList);
             project(projectNameInput.value); //create the project tab
             toogleVisibility(hiddenContainer, "none");
             toogleVisibility(createNewProjectBtn, "block");
