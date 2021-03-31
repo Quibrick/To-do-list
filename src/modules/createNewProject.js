@@ -18,7 +18,7 @@ function createNewProjectBtn() {
     hiddenButtons.classList.add("left-hand-hidden-buttons");
     hiddenButtons.style.display = "flex";
     
-    //the btn 
+    //the btn, just toogles the display for the btn's and input form
     const createNewProjectBtn = btnConstructor("create-new-project", "+ Create new project", "block");
     createNewProjectBtn.classList.add("left-bar-btn");
     createNewProjectBtn.addEventListener('click',() => {
@@ -28,39 +28,41 @@ function createNewProjectBtn() {
     });
     leftBar.appendChild(createNewProjectBtn);
     
+    //the project name input
     const projectNameInput = document.createElement("input");
     projectNameInput.id = "project-name-input";
     projectNameInput.placeholder = "Project Name";
     hiddenContainer.appendChild(projectNameInput);
     
+    //the submit project btn
     const submitProjectBtn = btnConstructor("submit-btn-left", "Submit", "block");
-
     submitProjectBtn.addEventListener("click", () => {
 
-        if(projectNameInput.value.length != 0) {
+        if(projectNameInput.value.length != 0) {  //check to see if inputs !=null
             
-            project(projectNameInput);
+            project(projectNameInput.value); //create the project tab
             toogleVisibility(hiddenContainer, "none");
             toogleVisibility(createNewProjectBtn, "block");
+       
         } else {
+            
+            //needs work
             console.log("er");
         }
     });
+    hiddenButtons.appendChild(submitProjectBtn);
+    
+    //the cancel btn, just changes displays
     const cancelBtn = btnConstructor("cancel-btn-left", "Cancel", "block");
-
     cancelBtn.addEventListener("click", () => {
 
         toogleVisibility(hiddenContainer, "none");
         toogleVisibility(createNewProjectBtn, "block");
-    })
-
-    hiddenButtons.appendChild(submitProjectBtn);
+    });
     hiddenButtons.appendChild(cancelBtn);
 
     hiddenContainer.appendChild(hiddenButtons);
-
     leftBar.appendChild(hiddenContainer);
-
 }
 
 export default createNewProjectBtn;

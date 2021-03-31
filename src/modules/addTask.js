@@ -8,11 +8,23 @@ import Task from "./TaskClass";
 import clearForm from "./clearForm";
 import taskItem from "./taskItem";
 
-//New Task button displayed on the DOM
-function addTaskConstructor(id, taskManager, projectName) {
+/*
+New Task button displayed on the DOM
+gets the project name argument in order
+to create the coresponding localStorage,
+taskManager is a Map() object, id is a -
+global, localy stored , variable in order to
+enumerate local storage inserstions    
+*/
+
+function addTask(id, taskManager, projectName) {
     
+    //content HTML parent
+    const content = document.getElementById("content");
+
     //the container
-    const addNewTaskDiv = document.getElementById("add-new");
+    const addNewTaskDiv = document.createElement("div");
+    addNewTaskDiv.id = "add-new";
     
     //contains the form with display-none
     const hiddenContainer = document.createElement("div");
@@ -52,7 +64,7 @@ function addTaskConstructor(id, taskManager, projectName) {
             taskItem(id); //create the DOM element 
             const taskObj = new Task (id, valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3]); //create the coresponding object
             taskManager.set(`task-${id}`, taskObj); //map() stores the obj
-            localStorage.landingProject = JSON.stringify(Array.from(taskManager.entries())) //localy store map()
+            localStorage.setItem(`${projectName}`, JSON.stringify(Array.from(taskManager.entries())));//localy store map() with the projects name
             id ++;
             localStorage.setItem("id", id); //localy store id
             setTask(taskObj); //fills the DOM element with the taskobj values
@@ -75,9 +87,10 @@ function addTaskConstructor(id, taskManager, projectName) {
     });
     hiddenButtons.appendChild(cancelBtn);
     
-    //append all elemets to the DOM element
+    //append all elements to the DOM element
     hiddenContainer.appendChild(hiddenButtons);
     addNewTaskDiv.appendChild(hiddenContainer);
+    content.appendChild(addNewTaskDiv);
 }
 
-export default addTaskConstructor;
+export default addTask;
