@@ -1,11 +1,12 @@
 import btnConstructor from "./btnConstructor";
 import modalConstructor from "./modalConstructor";
+import nameForLocalStorage from "./nameForLocalStorage";
 import removeItem from "./removeItem";
 import setModal from "./setModal";
 import setTask from "./setTask";
 import toogleVisibility from "./toogleVisibility";
 
-function taskItemConstructor(id) {
+function taskItem(id, projectName) {
 
     //The container on the DOM for all tasks
     const tasksContainer = document.getElementById("tasks-container");
@@ -89,9 +90,9 @@ function taskItemConstructor(id) {
     deleteBtn.addEventListener("click", () => {
         
         singleTaskContainer.remove(); //remove the selected item from the DOM
-        let taskManager = new Map(JSON.parse(localStorage.taskManager)); //create a new map !!!MAYBE CHANGE THIS    
+        let taskManager = new Map(JSON.parse(localStorage.getItem(nameForLocalStorage(projectName)))); //create a new map !!!MAYBE CHANGE THIS    
         taskManager.delete(`task-${id}`);
-        localStorage.taskManager = JSON.stringify(Array.from(taskManager.entries()))
+        localStorage.setItem(`${nameForLocalStorage(projectName)}`, JSON.stringify(Array.from(taskManager.entries()))); 
     });
     deleteBtn.appendChild(deleteImage);
     rightHandItems.appendChild(deleteBtn);
@@ -111,4 +112,4 @@ function taskItemConstructor(id) {
     tasksContainer.appendChild(singleTaskContainer);
 };
 
-export default taskItemConstructor;
+export default taskItem;

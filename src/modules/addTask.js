@@ -7,6 +7,7 @@ import setTask from "./setTask";
 import Task from "./TaskClass";
 import clearForm from "./clearForm";
 import taskItem from "./taskItem";
+import nameForLocalStorage from "./nameForLocalStorage";
 
 /*
 New Task button displayed on the DOM
@@ -61,10 +62,10 @@ function addTask(id, taskManager, projectName) {
         //if input != empty
         if(formValidation(valuesArray)) {
             
-            taskItem(id); //create the DOM element 
+            taskItem(id, projectName); //create the DOM element 
             const taskObj = new Task (id, valuesArray[0], valuesArray[1], valuesArray[2], valuesArray[3]); //create the coresponding object
             taskManager.set(`task-${id}`, taskObj); //map() stores the obj
-            localStorage.setItem(`${projectName}`, JSON.stringify(Array.from(taskManager.entries())));//localy store map() with the projects name
+            localStorage.setItem(nameForLocalStorage(projectName), JSON.stringify(Array.from(taskManager.entries())));//localy store map() with the projects name
             id ++;
             localStorage.setItem("id", id); //localy store id
             setTask(taskObj); //fills the DOM element with the taskobj values

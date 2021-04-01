@@ -42,7 +42,7 @@
     background-color: #CCCCCC;
 }
 
-@media (max-width: 768px){
+@media (max-width: 900px){
     #left-bar{
         display: none;
     }
@@ -64,6 +64,7 @@
     outline: none;
 }
 
+
 #content{
     position: absolute;
     left: 350px;
@@ -74,7 +75,15 @@
     bottom: 0;
     overflow-y: scroll;
 }
-::-webkit-scrollbar {
+
+@media (max-width: 900px){
+    #content{
+
+        left: 130px;
+    }
+}
+
+::-webkit-scrollbar{
     width: 0px;
 }
 

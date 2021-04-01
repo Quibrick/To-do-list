@@ -2,7 +2,7 @@ import addTask from "./addTask";
 import btnConstructor from "./btnConstructor";
 import nameForLocalStorage from "./nameForLocalStorage";
 import setTask from "./setTask";
-import taskItemConstructor from "./taskItem";
+import taskItem from "./taskItem";
 
 function project(projectName) {
 
@@ -39,10 +39,12 @@ function project(projectName) {
         } else {
 
             let taskManager = new Map(JSON.parse(localStorage.getItem(nameForLocalStorage(projectName))));
+           
             addTask(id, taskManager, nameForLocalStorage(`${projectName}`));
+            
             for(let value of taskManager.values()) {
 
-                taskItemConstructor(value.id);
+                taskItem(value.id, projectName);
                 setTask(value);
             }
 
