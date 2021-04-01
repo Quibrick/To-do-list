@@ -46,6 +46,7 @@ function createNewProjectBtn(customProjectList) {
             project(projectNameInput.value); //create the project tab
             toogleVisibility(hiddenContainer, "none");
             toogleVisibility(createNewProjectBtn, "block");
+            projectNameInput.value = "";
        
         } else {
             

@@ -1,7 +1,6 @@
 import btnConstructor from "./btnConstructor";
 import modalConstructor from "./modalConstructor";
 import nameForLocalStorage from "./nameForLocalStorage";
-import removeItem from "./removeItem";
 import setModal from "./setModal";
 import setTask from "./setTask";
 import toogleVisibility from "./toogleVisibility";

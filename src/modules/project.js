@@ -8,38 +8,39 @@ function project(projectName) {
 
     //container on the left hand where projects get appended to
     const projectsContainer = document.getElementById("projects");
-
+    //the container with individual tasks that appears on the middle of the screen
     const tasksContainer = document.getElementById("tasks-container");
+    //contains project btn and delet btn
+    const singleProjectContainer = document.createElement("div");
+    singleProjectContainer.classList.add("single-project-container");
+    singleProjectContainer.style.display = "flex";
     
     //the title of the project, acts as a btn
     const projectBtn = btnConstructor(`${projectName}`, `${projectName}`, "block");
     projectBtn.addEventListener("click", () => {
-
+        
+        //on click clear tasks container
         while (tasksContainer.firstChild) {
 
             tasksContainer.removeChild(tasksContainer.lastChild);
         };
-    
+
         const addNew = document.getElementById("add-new"); //get add-new tab of previous project
         addNew.remove(); //remove add-new tab
         const title = document.getElementById("page-view-title");
         title.textContent =  projectName; //correct the title on the top of the page
-        
         let id = JSON.parse(localStorage.getItem("id")); //get global id from localStorage
         
-        const localStorageName = nameForLocalStorage(`${projectName}`);
-
-        let taskManager = JSON.parse(localStorage.getItem(`${localStorageName}`));
-
+        let taskManager = JSON.parse(localStorage.getItem(nameForLocalStorage(projectName))); //get the corresponding table from localstorage
+        
         if (taskManager === null) {
             
             let taskManager = new Map(); //make a new Map obj for the specific project
             addTask(id,taskManager,nameForLocalStorage(projectName) ); //create new +Add task btn
         
-        } else {
+        } else { //populate content of clicked project with saved tasks
 
             let taskManager = new Map(JSON.parse(localStorage.getItem(nameForLocalStorage(projectName))));
-           
             addTask(id, taskManager, nameForLocalStorage(`${projectName}`));
             
             for(let value of taskManager.values()) {
@@ -47,13 +48,26 @@ function project(projectName) {
                 taskItem(value.id, projectName);
                 setTask(value);
             }
-
         }
     });
 
+    //delete selected project from left bar
+    const deleteProjectBtn = btnConstructor(`delete-${projectName}-btn`, "delete", "block");
+    deleteProjectBtn.addEventListener("click", () => {
+
+        singleProjectContainer.remove();
+        localStorage.removeItem(nameForLocalStorage(projectName));
+        let customProjectList = JSON.parse(localStorage.getItem("custom-project-list")); //get custom projects
+        customProjectList = customProjectList.filter(name => name != projectName);
+        localStorage.setItem("custom-project-list", JSON.stringify(customProjectList));
+    });
+
+    singleProjectContainer.appendChild(projectBtn);
+    singleProjectContainer.appendChild(deleteProjectBtn);
+
     //append to the DOM
     projectBtn.classList.add("left-bar-btn");
-    projectsContainer.appendChild(projectBtn);
+    projectsContainer.appendChild(singleProjectContainer);
 }
 
 export default project;

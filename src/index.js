@@ -15,45 +15,40 @@ function onLoad() {
         
         let customProjectList = []; //stores project names
         let taskManager = new Map(); //maps all task objects
-        let id = 1; //id for every object
-        addTask(id, taskManager, nameForLocalStorage("To Do")); //creates add-task DOM item
+        localStorage.setItem("Todo", JSON.stringify(Array.from(taskManager.entries())));
+        id = 0; //id for every object
+        localStorage.setItem("id", id);
+        addTask(id, taskManager, "Todo"); //creates add-task DOM item
+        project("Todo"); //fixed project, always appears
+        document.getElementById("Todo").click();
+        customProjectList.push("Todo");
+        localStorage.setItem("custom-project-list", JSON.stringify(customProjectList))
         createNewProjectBtn(customProjectList); //Create new project DOM item
-        project("To Do"); //fixed project, always appears
-        document.getElementById("To Do").click();
-    
+
     } else {
 
-        project("To Do"); //create the default ToDo project
-        document.getElementById("To Do").click();
         let customProjectList = JSON.parse(localStorage.getItem("custom-project-list")); //get custom projects
-
-        if( customProjectList != null) {
-
-            //populate left hand bar with user created projects
-            const lengthOfList = customProjectList.length;
-            for(let i = 0; i < lengthOfList; i++) {
-                
-                project(customProjectList[i]);
-            }
-
-            createNewProjectBtn(customProjectList);
+        let taskManager = new Map(JSON.parse(localStorage.Todo));
+        addTask(id, taskManager, "Todo");  
+        
+        //populate left hand bar with user created projects
+        const lengthOfList = customProjectList.length;
+        
+        for (let i = 0; i < lengthOfList; i++) {
             
-        } else { //user hasnt created any custom projects
-
-            const customProjectList = [];
-            createNewProjectBtn(customProjectList);
+            project(customProjectList[i]);
         }
-
-        let taskManager = new Map(JSON.parse(localStorage.ToDo));
-        addTask(id, taskManager, nameForLocalStorage("To Do"));
+        
+        createNewProjectBtn(customProjectList);
         
         //populate default To Do project
-        for(let value of taskManager.values()) {
+        for (let value of taskManager.values()) {
             
             taskItemConstructor(value.id);
             setTask(value);
         }
-       
+
+        document.getElementById("Todo").click();
     }
 }
 
