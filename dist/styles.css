@@ -42,6 +42,11 @@
     background-color: #CCCCCC;
 }
 
+#left-bar-title{
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
+
 @media (max-width: 900px){
     #left-bar{
         display: none;
@@ -91,39 +96,45 @@
     margin-top: 30px;
 }
 
-#add-new-btn{
-    margin-top: 20px;
-}
-
 .hidden-form{
-    margin-top: 10px;
+    margin-top: 50px;
     flex-direction: column;
-    width: 300px;
+    width: 310px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
 }
 
 input[type=text]{
-    height: 50px;
+    text-align: center;
+    height: 35px;
     width: 300px;
-    border: none;
+    border: inherit;
+    background-color: white;
     outline: none;
-    border-bottom: 1px solid #476280;
+    border-bottom: 1px solid black;
 }
 
 input[type=text-area]{
-    height: 50px;
+    margin-top: 10px;
+    text-align: center;
+    height: 35px;
     width: 300px;
-    border: none;
     outline: none;
-    border-bottom: 1px solid #476280;
+    background-color: white;
+    border: inherit;
+    border-bottom: 1px solid black;
 }
 
 input[type=date] {
-    margin-top: 10px;
+    padding-bottom: 10px;
+    margin:10px;
     height: 30px;
-    width:135px;
-    border: none;
+    width:300px;
+    border: inherit;
+    background-color: white ;
+    border-bottom: 1px solid black;
     outline: none;
-    border-bottom: 1px solid #476280;
 }
 
 ::placeholder{
@@ -132,26 +143,41 @@ input[type=date] {
 
 
 #radio-input-container{
-    margin-top: 20px;
-    padding-bottom: 20px;
+    background-color: white;
+    height: 30px;
+    width: 280px;
+    justify-content: center;
+    align-content: center;
     font-size: 14px;
     display: flex;
+    padding-top: 15px;
     column-gap: 10px;
-    border-bottom: 1px solid #476280;
+    border:inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid black;
 }
 
 #add-new-btn{
-    font-size: 20px;
-    padding: 5px 5px 5px 5px;
+    display: flex;
+    font-size: 40px;
     background-color: transparent;
     border: none;
     outline: none;
     transition: 0.1s;
     margin-bottom: 220px;
+    margin-top: 30px;
+    background-color: #71C386;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
 }
 
 #add-new-btn:hover{
-    color: #71C386;
+
+    width: 55px;
+    height: 55px;
 }
 
 #submit-btn{
@@ -244,7 +270,7 @@ input[type=date] {
     height: 15px;
 }
 
-#delete-task-img{
+.delete-img{
     width: 10px;
     height: 15px;
 }
@@ -316,7 +342,7 @@ input[type=date] {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .left-bar-btn{
@@ -330,8 +356,8 @@ input[type=date] {
 
 #create-new-project{
     font-weight: normal;
-    margin: auto;
-    margin-top: 20px;
+    margin-top: 30px;
+    padding-left: 10px;
 }
 
 #create-new-project:hover{
@@ -385,10 +411,9 @@ input[type=date] {
 }
 
 .single-project-container{
-    justify-content: center;
+    padding-left: 10px;
+    padding-right: 20px;
+    justify-content: space-between;
+    align-items: center;
     column-gap: 5px;
-}
-
-#delete-Todo-btn{
-    display: none;
 }

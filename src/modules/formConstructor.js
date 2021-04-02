@@ -17,6 +17,8 @@ function formConstructor(identifier) {
     //form description
     const descriptionInput = document.createElement("input");
     descriptionInput.type = "text-area";
+    descriptionInput.cols = "60";
+    descriptionInput.rows = "8";
     descriptionInput.placeholder = "Description";
     descriptionInput.id = `description-${identifier}`;
     descriptionInput.required = true;

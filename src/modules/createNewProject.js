@@ -19,7 +19,7 @@ function createNewProjectBtn(customProjectList) {
     hiddenButtons.style.display = "flex";
     
     //the btn, just toogles the display for the btn's and input form
-    const createNewProjectBtn = btnConstructor("create-new-project", "+ Create new project", "block");
+    const createNewProjectBtn = btnConstructor("create-new-project", "Create new project", "block");
     createNewProjectBtn.classList.add("left-bar-btn");
     createNewProjectBtn.addEventListener('click',() => {
         

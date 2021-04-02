@@ -34,6 +34,9 @@ function modalConstructor(taskObj) {
     const saveBtn = btnConstructor("save-changes-btn-modal", "Save changes", "block");
     saveBtn.addEventListener("click", () => {
         
+        console.log(taskObj);
+        const formValues = getValuesForm("modal-form");
+        console.log(formValues)
 
     })
     hiddenButtons.appendChild(saveBtn);

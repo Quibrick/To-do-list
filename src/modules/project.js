@@ -5,7 +5,7 @@ import setTask from "./setTask";
 import taskItem from "./taskItem";
 
 function project(projectName) {
-
+    
     //container on the left hand where projects get appended to
     const projectsContainer = document.getElementById("projects");
     //the container with individual tasks that appears on the middle of the screen
@@ -17,6 +17,7 @@ function project(projectName) {
     
     //the title of the project, acts as a btn
     const projectBtn = btnConstructor(`${projectName}`, `${projectName}`, "block");
+    projectBtn.classList.add("left-bar-btn");
     projectBtn.addEventListener("click", () => {
         
         //on click clear tasks container
@@ -50,23 +51,35 @@ function project(projectName) {
             }
         }
     });
-
-    //delete selected project from left bar
-    const deleteProjectBtn = btnConstructor(`delete-${projectName}-btn`, "delete", "block");
-    deleteProjectBtn.addEventListener("click", () => {
-
-        singleProjectContainer.remove();
-        localStorage.removeItem(nameForLocalStorage(projectName));
-        let customProjectList = JSON.parse(localStorage.getItem("custom-project-list")); //get custom projects
-        customProjectList = customProjectList.filter(name => name != projectName);
-        localStorage.setItem("custom-project-list", JSON.stringify(customProjectList));
-    });
-
     singleProjectContainer.appendChild(projectBtn);
-    singleProjectContainer.appendChild(deleteProjectBtn);
+
+    //Default project cannot be deleted
+    if (projectName != "Todo") {
+        
+        //delete selected project from left bar
+        const deleteProjectBtn = btnConstructor(`delete-${projectName}-btn`, "", "block");
+        deleteProjectBtn.classList.add("task-btn");
+        
+        //X mark
+        const deleteProjectImage = document.createElement("img");
+        deleteProjectImage.src = './img/cancel.svg';
+        deleteProjectBtn.classList.add("delete-img")
+        deleteProjectBtn.appendChild(deleteProjectImage);
+        
+        //Clears selected from local storage and the dom and reloads window
+        deleteProjectBtn.addEventListener("click", () => {
+            
+            location.reload();
+            singleProjectContainer.remove();
+            localStorage.removeItem(nameForLocalStorage(projectName));
+            let customProjectList = JSON.parse(localStorage.getItem("custom-project-list")); //get custom projects
+            customProjectList = customProjectList.filter(name => name != projectName);
+            localStorage.setItem("custom-project-list", JSON.stringify(customProjectList));
+        });
+        singleProjectContainer.appendChild(deleteProjectBtn);
+    }
 
     //append to the DOM
-    projectBtn.classList.add("left-bar-btn");
     projectsContainer.appendChild(singleProjectContainer);
 }
 

@@ -42,7 +42,7 @@ function addTask(id, taskManager, projectName) {
     hiddenContainer.appendChild(form);
     
     //add task btn
-    const addNewBtn = btnConstructor("add-new-btn", "+ Add task", "block");
+    const addNewBtn = btnConstructor("add-new-btn", "+", "block");
    
     //on click display hidden form and hide add task btn
     addNewBtn.addEventListener('click',() => {

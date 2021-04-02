@@ -60,9 +60,9 @@ function taskItem(id, projectName) {
 
     editBtn.addEventListener("click", () => {
         
-        let taskManager = new Map(JSON.parse(localStorage.taskManager)); //create a new map !!!MAYBE CHANGE THIS    
-        const taskObj = taskManager.get(`task-${id}`);
-        modalConstructor();
+        let taskManger = new Map(JSON.parse(localStorage.getItem(nameForLocalStorage(projectName)))); //create a new map !!!MAYBE CHANGE THIS    
+        const taskObj = taskManger.get(`task-${id}`);
+        modalConstructor(taskObj);
         const modal = document.getElementById("modal-form");
         modal.style.display = "none";
         toogleVisibility(modal, "block");
@@ -82,7 +82,7 @@ function taskItem(id, projectName) {
    
     //img of delete btn
     const deleteImage = document.createElement("img");
-    deleteImage.id = "delete-task-img";
+    deleteImage.classList.add("delete-img");
     deleteImage.src = './img/cancel.svg';
     
     //on click trigers delete logic
