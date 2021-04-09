@@ -60,13 +60,13 @@ function taskItem(id, projectName) {
 
     editBtn.addEventListener("click", () => {
         
-        let taskManger = new Map(JSON.parse(localStorage.getItem(nameForLocalStorage(projectName)))); //create a new map !!!MAYBE CHANGE THIS    
-        const taskObj = taskManger.get(`task-${id}`);
-        modalConstructor(taskObj);
+        const taskManager = new Map(JSON.parse(localStorage.getItem(nameForLocalStorage(projectName)))); //create a new map !!!MAYBE CHANGE THIS    
+        const taskObj = taskManager.get(`task-${id}`);
+        modalConstructor();
         const modal = document.getElementById("modal-form");
         modal.style.display = "none";
         toogleVisibility(modal, "block");
-        setModal(taskObj);
+        setModal(taskObj, taskManager, projectName);
     });
    
     //img of edit task btn

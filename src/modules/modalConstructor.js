@@ -3,7 +3,7 @@ import formConstructor from "./formConstructor";
 import getValuesForm from "./getValuesForm";
 import toogleVisibility from "./toogleVisibility";
 
-function modalConstructor(taskObj) {
+function modalConstructor() {
 
     //select the body of page to display modal
     const bodyDOM = document.getElementsByTagName("body")[0];
@@ -32,12 +32,10 @@ function modalConstructor(taskObj) {
     hiddenButtons.style.display = "flex";
     
     const saveBtn = btnConstructor("save-changes-btn-modal", "Save changes", "block");
-    saveBtn.addEventListener("click", () => {
-        
-        console.log(taskObj);
-        const formValues = getValuesForm("modal-form");
-        console.log(formValues)
 
+    saveBtn.addEventListener("click", () => {
+
+        toogleVisibility(modalContainer, "none");
     })
     hiddenButtons.appendChild(saveBtn);
     
