@@ -72,6 +72,8 @@ function addTask(id, taskManager, projectName) {
             clearForm("add-task"); //clears form
             toogleVisibility(hiddenContainer, "none");
             toogleVisibility(addNewBtn, "block");
+        }else {
+            document.getElementById("all-required").style.display = "block";
         }
     });
     hiddenButtons.appendChild(submitBtn);

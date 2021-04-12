@@ -8,22 +8,38 @@ function setModal(taskObj, taskManager, projectName) {
     const title = document.getElementById("title-modal");
     const description = document.getElementById("description-modal");
     const dueDate = document.getElementById("due-date-modal");
-    document.querySelector('input[name="rate"]:checked').value;
-
+    let priority;
 
     title.value = `${taskObj.title}`;
-    description.value  = `${taskObj.description}`;
+    description.value = `${taskObj.description}`;
     dueDate.value = `${taskObj.dueDate}`;
+    
+    //sets the modal radio buttons with taskObj.priority value
+    switch (taskObj.priority) {
+
+        case "High":
+            document.getElementsByName("priority-modal")[0].checked = true;
+            break;
+
+        case "Normal":
+            document.getElementsByName("priority-modal")[1].checked = true;
+            break;
+
+        case "Low":
+            document.getElementsByName("priority-modal")[2].checked = true;
+            break;
+    }
 
     const saveBtn = document.getElementById("save-changes-btn-modal");
-
     saveBtn.addEventListener("click", () => {
-
-        taskObj = new Task (taskObj.id, title.value, description.value, dueDate.value, );
+        
+        //get the last clicked values from radio btns
+        priority = document.querySelector('input[name="priority-modal"]:checked').value;
+        taskObj = new Task(taskObj.id, title.value, description.value, dueDate.value, priority); //make a new obj
         taskManager.set(`task-${taskObj.id}`, taskObj); //map() stores the obj
         setTask(taskObj);
         localStorage.setItem(nameForLocalStorage(projectName), JSON.stringify(Array.from(taskManager.entries())));//localy store map() with the projects name
-        
+
     })
 };
 

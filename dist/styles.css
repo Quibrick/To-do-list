@@ -64,7 +64,7 @@
     width: 200px;
     border-radius: 5px;
     text-align: center;
-    background-color: #EFEBDE;
+    background-color: white;
     border: transparent;
     outline: none;
 }
@@ -188,10 +188,11 @@ input[type=date] {
     outline: none;
     transition: 0.1s;
     margin-top: 10px;
+    margin-left: 5px;
 }
 
 #submit-btn:hover{
-    color: #71C386;
+    color: #20A4F3;
 }
 
 #cancel-btn{
@@ -202,11 +203,11 @@ input[type=date] {
     outline: none;
     transition: 0.1s;
     margin-top: 10px;
-    margin-left: 170px;
+    margin-left: 165px;
 }
 
 #cancel-btn:hover{
-    color: #71C386;
+    color: #20A4F3;
 }
 
 .single-task-container{
@@ -361,7 +362,7 @@ input[type=date] {
 }
 
 #create-new-project:hover{
-    color: #71C386;
+    color: #20A4F3;
 }
 
 .left-bar-btn:hover{
@@ -383,7 +384,7 @@ input[type=date] {
 }
 
 #submit-btn-left:hover{
-    color: #71C386;
+    color: #20A4F3;
 }
 
 #cancel-btn-left{
@@ -397,7 +398,7 @@ input[type=date] {
 }
 
 #cancel-btn-left:hover{
-    color: #71C386;
+    color: #20A4F3;
 }
 
 .left-hand-hidden-buttons{

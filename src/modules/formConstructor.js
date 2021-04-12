@@ -42,11 +42,11 @@ function formConstructor(identifier) {
         const label = document.createElement("label");
         label.htmlFor = labels[i];
         label.innerHTML = labels[i];
-        label.name = "priority";
         const input = document.createElement("input");
         input.type = "radio";
-        input.name = "priority";
+        input.name = `priority-${identifier}`;
         input.value = labels[i];
+        input.id = `radio-${labels[i]}`
         radioInputContainer.appendChild(label);
         radioInputContainer.appendChild(input);
     }
@@ -58,7 +58,14 @@ function formConstructor(identifier) {
     dueDateInput.id = `due-date-${identifier}`;
     dueDateInput.required = true;
     form.appendChild(dueDateInput);
-
+    
+    const allRequired = document.createElement("p");
+    allRequired.id = "all-required";
+    allRequired.style.color = "red";
+    allRequired.style.display = "none";
+    allRequired.textContent = "Please make sure to fill out all input fields";
+    form.appendChild(allRequired);
+    
     return form;
 }
 
