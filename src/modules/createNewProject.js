@@ -47,11 +47,11 @@ function createNewProjectBtn(customProjectList) {
             toogleVisibility(hiddenContainer, "none");
             toogleVisibility(createNewProjectBtn, "block");
             projectNameInput.value = "";
+            projectNameInput.placeholder = "Project Name";
        
         } else {
             
-            //needs work
-            console.log("er");
+            projectNameInput.placeholder = "Please provide a name";
         }
     });
     hiddenButtons.appendChild(submitProjectBtn);
@@ -60,6 +60,7 @@ function createNewProjectBtn(customProjectList) {
     const cancelBtn = btnConstructor("cancel-btn-left", "Cancel", "block");
     cancelBtn.addEventListener("click", () => {
 
+        projectNameInput.placeholder = "Project Name";
         toogleVisibility(hiddenContainer, "none");
         toogleVisibility(createNewProjectBtn, "block");
     });

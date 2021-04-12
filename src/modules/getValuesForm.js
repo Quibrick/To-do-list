@@ -6,11 +6,9 @@ function getValuesForm(identifier) {
     const dueDate = document.getElementById(`due-date-${identifier}`).value;
     const priority = document.querySelector('input[name="priority-add-task"]:checked').value;
     
-
     let formValues = [title , description, dueDate,  priority];
 
     return formValues;
-
 }
 
 export default getValuesForm;

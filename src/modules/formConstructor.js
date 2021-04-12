@@ -46,7 +46,11 @@ function formConstructor(identifier) {
         input.type = "radio";
         input.name = `priority-${identifier}`;
         input.value = labels[i];
-        input.id = `radio-${labels[i]}`
+        //check normal by default, cant think smth better
+        if( i === 1) {
+            
+            input.checked = true;
+        }
         radioInputContainer.appendChild(label);
         radioInputContainer.appendChild(input);
     }

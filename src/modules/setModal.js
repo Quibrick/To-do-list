@@ -5,11 +5,13 @@ import Task from "./TaskClass";
 //when the edit modal opens populate input with items values
 function setModal(taskObj, taskManager, projectName) {
 
+    //get input fields
     const title = document.getElementById("title-modal");
     const description = document.getElementById("description-modal");
     const dueDate = document.getElementById("due-date-modal");
-    let priority;
+    let priority; //variable in order to check the correct radio input
 
+    //assign obj values to input fields
     title.value = `${taskObj.title}`;
     description.value = `${taskObj.description}`;
     dueDate.value = `${taskObj.dueDate}`;

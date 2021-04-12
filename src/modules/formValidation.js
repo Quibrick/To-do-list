@@ -13,7 +13,6 @@ function formValidation(values) {
     }
 
     return true;
-
 }
 
 export default formValidation;

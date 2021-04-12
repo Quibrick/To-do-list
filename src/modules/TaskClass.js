@@ -9,17 +9,6 @@ class Task {
         this.dueDate = dueDate;
         this.priority = priority;
     }
-
-    set ChangeTitle(title) {
-
-        this.title = title;
-    }
-
-    set ChangeDescription(description) {
-
-        this.description = description;
-    }
-
 }
 
 export default Task;

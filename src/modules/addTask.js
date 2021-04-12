@@ -72,7 +72,10 @@ function addTask(id, taskManager, projectName) {
             clearForm("add-task"); //clears form
             toogleVisibility(hiddenContainer, "none");
             toogleVisibility(addNewBtn, "block");
+            document.getElementById("all-required").style.display = "none";
+
         }else {
+
             document.getElementById("all-required").style.display = "block";
         }
     });
@@ -84,6 +87,7 @@ function addTask(id, taskManager, projectName) {
     //cancels the form and hides it
     cancelBtn.addEventListener("click", () => {
 
+        document.getElementById("all-required").style.display = "none";
         toogleVisibility(hiddenContainer,"none");
         toogleVisibility(addNewBtn, "block");
         clearForm("add-task");
